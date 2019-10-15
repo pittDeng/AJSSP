@@ -3,9 +3,10 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class ProblemGenerator {
-    public static int MAX_LEAF_FOR_SINGLE_NODE=3;
-    public static int MAX_TIME=10;
-    public static int HEIGHT=3;
+    public static final int MAX_LEAF_FOR_SINGLE_NODE=3;
+    public static final int MAX_TIME=10;
+    public static final int HEIGHT=3;
+    public static final int MAX_NUMBER_FOR_SINGLE_ORDER=5;
     public static Random random=new Random();
     public static void saveObject(Object o,String objectName){
         ObjectOutputStream oos=null;
@@ -77,6 +78,11 @@ public class ProblemGenerator {
 
         }
     }
+
+    /**
+     *
+     * @return the problem which is generated with the constraint of the constant parameters.
+     */
     public static Problem generateProblem(){
         Problem problem=new Problem();
         ArrayList<ArrayList<Integer>> leaf=new ArrayList<>();
@@ -120,6 +126,7 @@ public class ProblemGenerator {
         problem.machine=machine;
         problem.machineNum=machineNum;
         problem.time=time;
+        problem.getSmallestTime();
         return problem;
     }
     public static void main(String [] args){
